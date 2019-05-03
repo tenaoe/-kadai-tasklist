@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import models.Tasklist;
+import utils.DBUtil;
 
 /**
  * Servlet implementation class DestroyServlet
@@ -32,7 +33,7 @@ public class DestroyServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String _token = (String)request.getParameter("_token");
         if(_token != null && _token.equals(request.getSession().getId())) {
-            EntityManager em = utils.DBUtil.createEntityManager();
+            EntityManager em = DBUtil.createEntityManager();
 
             Tasklist m =em.find(Tasklist.class, (Integer)(request.getSession().getAttribute("Tasklist_id")));
 
