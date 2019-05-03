@@ -53,7 +53,7 @@ public class UpdateServlet extends HttpServlet {
 
             request.getSession().removeAttribute("tasklist_id");
 
-
+            response.sendRedirect(request.getContextPath() + "/index");
         }
     }
 
